@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+       
+    </head>
+    <style>
+        .navbar{
+            overflow: hidden;
+            background-color: #020351;
+            position: fixed;
+            width: 100%;
+            height: 42px;
+            top:0;
+            z-index: 1;
+        }
+        .navbar a{
+            float: left;
+            display: block;
+            color: #18A0FB;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: small;
+        }
+        .navbar b{
+            float: left;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-size: larger;
+            background-color:#00B4D8; 
+            color: #020351; 
+            border-radius: 15px; 
+            padding: 9px 0px;
+        }
+        .navbar a:hover{
+           background-color: #18A0FB;
+           color: #020351;
+        }
+        .navbar a.active {
+            background-color: #18A0FB;
+            color: #020351;
+        }
+        .navbar .searchbar{
+            float: right;
+        }
+        .navbar input[type=text]{
+            padding: 6px;
+            margin-top: 8px;
+            font-size: small;
+            border: none;
+            border-radius: 10px;
+        }
+        .navbar .searchbar button{
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background-color:#18A0FB;
+            font-size: small;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .navbar .searchbar button:hover{
+            background: aqua;
+        }
+        @media screen and (max-width: 650px) {
+            
+            .navbar{
+                width: 100%;
+                height: 300px;
+                position: relative;
+            }
+            .navbar a{
+                background-color: #020351;
+                color: #00B4D8;
+                display: block;
+                padding: 12px;
+                text-decoration: none;
+            }
+            .navbar b{
+                display: block;
+                text-decoration: none;
+                text-align: center;
+                font-size: larger;
+                background-color:#00B4D8; 
+                color: #020351; 
+                padding: 10px 175px;
+            }
+            .navbar .searchbar button{
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background-color:#18A0FB;
+            font-size: small;
+            cursor: pointer;
+            border-radius: 10px;
+            }
+            .navbar .searchbar{
+                float: none;
+            }
+            .navbar a, .navbar input[type=text], .navbar .searchbar button{
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+            .navbar a.active {
+                background-color: #18A0FB;
+                color: #020351;
+            }
+            .navbar input[type=text]{
+                border: 1px solid #020351;
+            }
+            .welcomebox{
+            background-image: url(cafes-of-mayfield-newcastle-nsw.jpg);
+            background-size:cover;
+            padding: 200px;
+            margin: 0px;  
+           }
+           .welcometext{
+            background-color:#00B4D8;
+            border-radius: 0px;
+            width: 200px;
+           }
+           .section01{
+            display: flex;
+            background-color: #90E0EF;
+            margin-top: 20px;
+          }
+          .section04{
+            background-color: #90E0EF;
+            padding: 80px 0px;
+            margin-top: 20px;
+            margin-bottom: 0px;
+          }
+          .commentbox{
+            height: 70px;
+            width: 100%;
+            background-color:#00B4D8;
+            text-align: center;
+            padding: 10px 20px;
+            margin-left: 0px;
+            margin-bottom: 0px;
+        }
+          .profilepic{
+            width: 68px;
+            height: 50px;
+            border-radius: 50%;
+        }
+          .Footer{
+            position: relative;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #020351;
+            color:#00B4D8;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+          .footer{
+            display: block;
+            color: #18A0FB;
+            text-align: center;
+            padding: 16px 8px;
+            text-decoration: none;
+            font-size: small;
+        }
+          .video{
+            width: 650px;
+            height: 415px;
+        }
+        }
+        img {max-width: 100%; display: block;}
+        .welcomebox{
+            background-image: url(./Images/cafes-of-mayfield-newcastle-nsw.jpg);
+            background-size:cover;
+            padding: 200px;
+            margin: 0px;
+            text-align: center;
+            color: #020351;
+        }
+        .welcometext{
+            background-color:#00B4D8;
+            border-radius: 50px;
+        }
+        .section01{
+            display: flex;
+            background-color: #90E0EF;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .section04{
+            background-color: #48CAE4;
+            width: 100%;
+            height: 650px;
+            margin-bottom: 20px;
+        }
+        .section05{
+            display: flex;
+            margin-top: 20px;
+            width: 100%;
+            height: 250px;
+            margin-bottom: 20px;
+        }
+        .section06{
+            position: relative;
+            display: flex;
+            margin-top: 20px;
+            width: 100%;
+            height: 250px
+        }
+        .section06:hover .popupimage{
+            opacity: 0.3;
+        }
+        .section06:hover .popup{
+            opacity: 1;
+        }
+        .popupimage{
+            opacity: 1;
+            display: block;
+            transition: .5s ease;
+            backface-visibility: hidden;
+            width: 100%;
+            margin-right:20px; 
+            margin-left: 20px;
+        }
+        .popup{
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .popuptext{
+            background-color:#18A0FB;
+            color: #020351;
+            font-size: large;
+            padding: 16px 32px;
+            border-radius: 50px;
+        }
+        .popuptext a{
+            text-decoration: none;
+        }
+        .commentbox{
+            height: 100%;
+            width: 100%;
+            background-color:#00B4D8;
+            text-align: center;
+            padding: 20px 20px;
+            margin-left: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            margin-right: 15px;
+        }
+        .profilepic{
+            width: 68px;
+            height: 50px;
+            border-radius: 50%;
+            float: left;
+        }
+        .section07{
+            display: flex;
+            background-color: #90E0EF;
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px 0px;
+        }
+        .Footer{
+            position: relative;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #020351;
+            color:#00B4D8;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+        .footer{
+            display: block;
+            color: #18A0FB;
+            text-align: center;
+            padding: 40px 20px;
+            text-decoration: none;
+            font-size: small;
+            margin-top: 20px;
+        }
+        .footer a{
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .footer a:hover{
+            background-color: #18A0FB;
+            color: #020351;
+        }
+        .video{
+            width: 100%; 
+            height: 555px;
+        }
+        .image01{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .section08{
+            display: flex;
+        }
+        .paymentpic{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            float: left;
+            padding: 18px 0px;
+            margin-left: 70px;
+        }
+    </style>
+    <body style="background-color: #020351">
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <b>Foodie Cafe</b>
+        <a href="#home"class="active">Home</a>
+        <a href="#foodcategories">Food Categories</a>
+        <a href="contact">Contact</a>
+        <a href="favorites">Favorites</a>
+        <div class="searchbar">
+            <input type="text" placeholder="Search" name="search">
+            <button type="submit"></button>
+        </div>
+    </div>
+    <div class="welcomebox">
+        <div class="welcometext">
+        <h1 >Welcome to Foodie Cafe</h1>
+       </div>
+    </div>
+    <div class="section01">
+        <div class="image01">
+         <img src="./Images/bakedgoods.jpg" alt="bakedgoods" width="900" height="250">
+        </div>
+        <div class="p1">
+            <h1>Bakery Foods</h1>
+            <p>All the foods are made freshly everyday, especially baked food items we prepare them everyday and servered freshly to our customers.</p>
+        </div>
+    </div>
+    <div style="background-color:#48CAE4;" class="section01">
+        <div class="p2">
+            <h1>Drinks and Refreshers</h1>
+            <p>We also supply our customers drinks and refreshers  upon thier request  like feresh fruit juices which are prepared freshly and coofee and other drinks are also made  freshly with the accurate instructions by our customer.</p>
+        </div>
+        <div class="image01">
+            <img src="./Images/selection-of-different-coffee-type.jpg" alt="drinks" width="1350" height="250">
+        </div>
+    </div>
+    <div style="background-color:#90E0EF;" class="section03">
+        <h1 style="text-align: center; background-color:#00B4D8; border-radius: 20px; ">A Video about how the foods in the cafe are prepared !</h1>
+        <iframe class="video" src="https://www.youtube.com/embed/xPPLbEFbCAo?controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="section04">
+        <h1 style="text-align:center; background-color:#00B4D8; border-radius: 20px; margin-top: 0px;">There are many selections in our cafe</h1>
+        <p>Shown below are a list of choices that can be made in our cafe to satisfy our customers.</p>
+        <div class="section05">
+            <div class="section06">
+            <img class="popupimage" src="./Images/dr-dough-doughnuts.png" alt="donuts" >
+            <div class="popup">
+                <div class="popuptext"><a href="Donuts">Donuts</a></div>
+            </div>
+            </div>
+            <div class="section06">
+            <img class="popupimage" src="./Images/bijyl26bjkw7z4lyaazf.jpg" alt="coofee">
+            <div class="popup">
+                <div class="popuptext"><a href="Coffee">Coffee</a></div>
+            </div>
+        </div>
+        </div>
+        <div class="section05">
+            <div class="section06">
+                <img class="popupimage" src="./Images/Chocolate-chip-cookies-14.jpg" alt="cookies">
+            <div class="popup">
+                <div class="popuptext"><a href="Cookies">Cookies</a></div>
+            </div>
+            </div>
+            <div class="section06">
+                <img class="popupimage" src="./Images/1433889344-del-milkshakes-index.jpg" alt="milkshakes">
+            <div class="popup">
+                <div class="popuptext"><a href="Milkshakes">Milkshakes</a></div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="section07">
+        <p>Comments left by our customers on our food products.</p>
+        <div class="commentbox"><img class="profilepic" src="./Images/index.jpg" alt="profiepic">Amazing</div>
+        <div class="commentbox"><img class="profilepic" src="./Images/index.jpg" alt="profiepic">Great</div>
+        <div class="commentbox"><img class="profilepic" src="./Images/index.jpg" alt="profiepic">Tasty</div>
+    </div>
+    <div class="Footer">
+        <div class="footer">
+            <ol>
+            <a style="font-size: large; float: left; background-color:#00B4D8; color: #020351; border-radius: 9px;">Foodie Cafe</a>
+            <a href="#find">Find us on</a>
+            <a href="#youtube">Youtube</a>
+            <a href="instagram">Instagram</a>
+            <a href="help">Help</a>
+            <a href="about">About us</a>
+            <a href="privacy">Privacy Policy</a>
+            <a href="Terms">Terms and Conditions</a>
+           </ol>
+           <div class="section08">
+           <img class="paymentpic" src="./Images/BPAY_Pty_Ltd_logo.svg.png" alt="paymentpic">
+           <img class="paymentpic" src="./Images/MasterCard_Logo.svg.png" alt="paymentpic">
+           <img class="paymentpic" src="./Images/Visa.svg.png" alt="paymentpic">
+           <img class="paymentpic" src="./Images/index.png" alt="paymentpic">
+          </div>
+        </div>
+    </div>
+    </body>
+</html>    
